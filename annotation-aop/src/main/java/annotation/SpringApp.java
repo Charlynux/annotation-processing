@@ -1,5 +1,6 @@
 package annotation;
 
+import annotation.aspect.CachingAspect;
 import annotation.service.BusinessService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +20,19 @@ public class SpringApp {
 
 
         logger.debug("{}", businessService.searchForBook("Asimov"));
+        logger.debug("{}", businessService.searchForBook("Asimov"));
+        logger.debug("{}", businessService.searchForBook("Herbert"));
+        logger.debug("{}", businessService.searchForBook("Asimov"));
+        logger.debug("{}", businessService.searchForBook("Brown"));
+        logger.debug("{}", businessService.searchForBook("Asimov"));
+        logger.debug("{}", businessService.searchForBook("Asimov"));
+        logger.debug("{}", businessService.searchForBook("Herbert"));
+        logger.debug("{}", businessService.searchForBook("Brown"));
+        logger.debug("{}", businessService.searchForBook("Asimov"));
+        logger.debug("{}", businessService.searchForBook("Herbert"));
+
+        CachingAspect cachingAspect = context.getBean(CachingAspect.class);
+        logger.debug("{}", cachingAspect.getCache().stats());
 
     }
 }

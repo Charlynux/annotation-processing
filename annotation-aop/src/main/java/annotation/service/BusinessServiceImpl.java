@@ -5,6 +5,8 @@ import annotation.bean.Book;
 import com.google.common.base.Optional;
 import com.google.common.collect.FluentIterable;
 import com.google.common.collect.ImmutableList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,10 +20,13 @@ public class BusinessServiceImpl implements BusinessService {
                                                 .add(new Book("Dune", "Herbert"))
                                                 .build();
 
+        Logger logger = LoggerFactory.getLogger(BusinessServiceImpl.class);
 
     @Override
     @SensibleMethod(id="uniqueId")
     public Book searchForBook(String author) {
+        logger.debug("Fouille dans ma bibliothèque ...");
+
         Optional<Book> bookOptional = FluentIterable.from(repository)
                                                     .firstMatch(b -> b.getAuthor().equals(author));
 

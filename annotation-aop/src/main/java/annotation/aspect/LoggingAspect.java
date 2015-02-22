@@ -13,7 +13,6 @@ public class LoggingAspect {
 
     Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
 
-
     @AfterReturning(pointcut = "@annotation(annotation.SensibleMethod)",
                     returning="returnValue")
     public void logUsage(JoinPoint joinPoint, Object returnValue){
