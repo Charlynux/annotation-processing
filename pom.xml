@@ -17,6 +17,7 @@
     <modules>
         <module>annotation-core</module>
         <module>annotation-test</module>
+        <module>annotation-aop</module>
     </modules>
 
 </project>
